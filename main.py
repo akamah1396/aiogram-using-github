@@ -1,6 +1,5 @@
 import asyncio
 from aiogram import Bot, Dispatcher
-from aiogram.types import Message
 from aiogram.filters import Command
 import authkey
 
@@ -15,11 +14,11 @@ dp = Dispatcher()
 
 
 @dp.message(Command("start"))
-async def cmd_start(message: Message):
+async def cmd_start(message):
     await message.answer(f" سلام { message.from_user.first_name}! ربات با Aiogram آماده است 😊")
 
 @dp.message()
-async def echo_handler(message: Message):
+async def echo_handler(message):
     await message.answer(f"تو گفتی: {message.text}")
 
 async def main():
