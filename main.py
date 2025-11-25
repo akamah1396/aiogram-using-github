@@ -15,7 +15,7 @@ dp = Dispatcher()
 
 @dp.message(Command("start"))
 async def cmd_start(message):
-    await message.answer(f" سلام { message.from_user.first_name}! ربات با Aiogram آماده است 😊")
+    await message.answer(f" سلام { message.from_user.first_name}! ربات با Aiogram آماده است \n حذف اضافات انجام شد! 😊")
 
 @dp.message()
 async def echo_handler(message):
