@@ -12,15 +12,15 @@ bot = Bot(token=BOT_TOKEN
           )
 dp = Dispatcher()
 
-@dp.message()
-async def echo_handler(message: Message):
-    await message.answer(f"تو گفتی: {message.text}")
+
 
 @dp.message(Command("start"))
 async def cmd_start(message: Message):
     await message.answer(f" سلام { message.from_user.first_name}! ربات با Aiogram آماده است 😊")
 
-
+@dp.message()
+async def echo_handler(message: Message):
+    await message.answer(f"تو گفتی: {message.text}")
 
 async def main():
     await dp.start_polling(bot)
