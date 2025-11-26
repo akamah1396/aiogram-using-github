@@ -12,8 +12,8 @@ async def menu(message: Message):
         "- گزینه 1\n"
         "- گزینه 2"
     )
-    button1 = InlineKeyboardButton(text="انتخاب 1", callback_data="opt1")
-    button2 = InlineKeyboardButton(text="گزینه 2", callback_data="opt2")
+    button1 = [InlineKeyboardButton(text="انتخاب 1", callback_data="opt1")]
+    button2 = [InlineKeyboardButton(text="گزینه 2", callback_data="opt2")]
 
 
     keyboard = InlineKeyboardMarkup([button1,button2])
