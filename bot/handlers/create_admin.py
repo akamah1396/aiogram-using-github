@@ -10,13 +10,13 @@ admins = []
 
 @create_admin_router.message(Command("auth"))
 async def get_id(msg: Message):
-    id = await msg.from_user.id
+    admin_id = msg.from_user.id
     msg.answer("درخواست شما در حال اجراست...")
-    if id in admins:
+    if admin_id in admins:
         await msg.answer("شما در حال حاضر ادمین هستید")
         
     else:
-        admins.append(id)
+        admins.append(admin_id)
         await msg.answer("درخواست شما پذیرفته شد")
 
 
