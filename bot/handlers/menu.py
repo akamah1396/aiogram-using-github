@@ -17,6 +17,6 @@ async def menu(message: Message):
    
 
 
-    keyboard = InlineKeyboardMarkup([buttons])
+    keyboard = InlineKeyboardMarkup(inline_keyboard=[buttons])
 
     await message.answer(text, reply_markup=keyboard, parse_mode="Markdown")
