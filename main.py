@@ -6,6 +6,7 @@ from bot_instance import bot
 from bot.handlers.help_handler import help_router
 from bot.handlers import create_admin
 from bot.handlers.create_admin import create_admin_router
+from bot.handlers.menu import menu_router
 from bot.set_commands import set_my_bot_commands
 
 
@@ -22,6 +23,7 @@ async def start_message(msg):
 dp.include_router(router)
 dp.include_router(help_router)
 dp.include_router(create_admin_router)
+dp.include_router(menu_router)
 
 
 async def main():
