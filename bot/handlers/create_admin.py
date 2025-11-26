@@ -8,7 +8,7 @@ create_admin_router = Router()
 
 admins = []
 
-@create_admin_router.message(Command("اجازه"))
+@create_admin_router.message(Command("auth"))
 async def get_id(msg: Message):
     id = await msg.from_user.id
     msg.answer("درخواست شما در حال اجراست...")
