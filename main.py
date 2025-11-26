@@ -6,7 +6,7 @@ from bot_instance import bot
 from bot.handlers.help_handler import help_router
 from bot.handlers import create_admin
 from bot.handlers.create_admin import create_admin_router
- from bot.set_commands import set_my_bot_commands
+from bot.set_commands import set_my_bot_commands
 
 
 
