@@ -1,4 +1,5 @@
 import asyncio
+from aiogram.types import BotCommand
 from aiogram import Bot, Dispatcher, Router
 from aiogram.filters import Command
 #from aiogram.types import Message
@@ -7,7 +8,6 @@ from bot.handlers.help_handler import help_router
 from bot.handlers import create_admin
 from bot.handlers.create_admin import create_admin_router
 from bot.handlers.menu import menu_router
-from bot.set_commands import set_my_bot_commands
 
 
 
@@ -27,7 +27,9 @@ dp.include_router(menu_router)
 
 
 async def main():
-    set_my_bot_commands()
+    await bot.set_my_commands([
+        BotCommand(command="auth", description="Authenticate yourself as admin"),
+    ])
     await dp.start_polling(bot)
 
 asyncio.run(main())
