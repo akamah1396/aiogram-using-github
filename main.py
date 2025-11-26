@@ -28,9 +28,9 @@ dp.include_router(menu_router)
 
 
 async def main():
-    bot.set_my_commands([
-        BotCommand(command="auth", description="درخواست ادمینی"),
-    ])
+    # bot.set_my_commands([
+    #     BotCommand(command="auth", description="درخواست ادمینی"),
+    # ])
     await dp.start_polling(bot)
 
 asyncio.run(main())
