@@ -27,7 +27,7 @@ dp.include_router(menu_router)
 
 
 async def main():
-    set_my_bot_commands
+    set_my_bot_commands()
     await dp.start_polling(bot)
 
 asyncio.run(main())
