@@ -13,9 +13,7 @@ from bot.handlers.menu import menu_router
 
 
 my_bot = bot
-bot.set_my_commands([
-        BotCommand(command="auth", description="درخواست ادمینی"),
-    ])
+
 dp = Dispatcher()
 router = Router()
 
@@ -30,7 +28,9 @@ dp.include_router(menu_router)
 
 
 async def main():
-    
+    bot.set_my_commands([
+        BotCommand(command="auth", description="درخواست ادمینی"),
+    ])
     await dp.start_polling(bot)
 
 asyncio.run(main())
