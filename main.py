@@ -4,6 +4,11 @@ from aiogram.filters import Command
 #from aiogram.types import Message
 from bot_instance import bot
 from bot.handlers.help_handler import help_router
+from bot.handlers import create_admin
+from bot.handlers.create_admin import create_admin_router
+
+
+
 
 my_bot = bot
 dp = Dispatcher()
@@ -15,6 +20,7 @@ async def start_message(msg):
 
 dp.include_router(router)
 dp.include_router(help_router)
+dp.include_router(create_admin_router)
 
 
 async def main():
