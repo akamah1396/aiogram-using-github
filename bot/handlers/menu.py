@@ -7,15 +7,15 @@ menu_router = Router()
 @menu_router.message(Command("menu"))
 async def menu(message: Message):
     text = (
-        "*Main Menu*\n"
-        "Choose an option:\n"
-        "- Option 1\n"
-        "- Option 2"
+        "*منوی اصلی*\n"
+        "لطفا یک گزینه را انتخاب کنید:\n"
+        "- گزینه 1\n"
+        "- گزینه 2"
     )
 
     keyboard = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="Option 1", callback_data="opt1")],
-        [InlineKeyboardButton(text="Option 2", callback_data="opt2")]
+        [InlineKeyboardButton(text="گزینه 1", callback_data="opt1")],
+        [InlineKeyboardButton(text="گزینه 2", callback_data="opt2")]
     ])
 
     await message.answer(text, reply_markup=keyboard, parse_mode="Markdown")
