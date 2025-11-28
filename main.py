@@ -11,10 +11,10 @@ dp = Dispatcher()
 @dp.message(Command("start"))
 async def reply_start(message: Message)->None:
     await message.answer(f"سلام {message.from_user.first_name} \n ربات شما فعال شد. ")
-def register_routers():
+def register_routers(dp):
     dp.include_router(send_photo_router)
 async def main():
-    register_routers()
+    register_routers(dp)
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
