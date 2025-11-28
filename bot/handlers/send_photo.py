@@ -5,6 +5,6 @@ from aiogram.filters import Command
 send_photo_router = Router()
 
 @send_photo_router.message(Command("photo"))
-async def send_photo(message: Message):
-    photo = "resources\images\gff.png"
+async def send_photos(message: Message):
+    photo = InputFileUnion("resources\images\gff.png")
     await message.answer_photo(photo=photo,caption="اینم از عکست!")
