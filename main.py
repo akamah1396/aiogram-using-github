@@ -9,9 +9,8 @@ dp = Dispatcher()
 
 
 @dp.message(Command("start"))
-async def reply_to_start(message: Message) -> None:
-    username = message.from_user
-    await message.answer(f"سلام {username} به ربات خودت خوش امدی.")
+async def reply_to_start(message: Message):
+    await message.answer(f"سلام {message.from_user} به ربات خودت خوش امدی.")
 
 
 async def main():
