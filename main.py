@@ -1,37 +1,22 @@
 import asyncio
-from aiogram.types import BotCommand
-from aiogram import Bot, Dispatcher, Router
+from aiogram import Dispatcher
+from bot.AkamTestBot import bot
 from aiogram.filters import Command
-#from aiogram.types import Message
-from bot_instance import bot
-from bot.handlers.help_handler import help_router
-from bot.handlers.create_admin import create_admin_router
-from bot.handlers.create_admin import create_admin_router
-from bot.handlers.menu import menu_router
+from aiogram.types import Message
 
-
-
-
-my_bot = bot
 
 dp = Dispatcher()
-router = Router()
 
-@router.message(Command("start"))
-async def start_message(msg):
-    await msg.answer("ربات شما فعال شد.")
 
-dp.include_router(router)
-dp.include_router(help_router)
-dp.include_router(create_admin_router)
-dp.include_router(menu_router)
+@dp.message(Command('start'))
+async def reply_to_start(message: Message) -> None:
+    username = message.from_user
+    await message.answer(f"سلام {username} به ربات خودت خوش امدی.")
 
 
 async def main():
-    # bot.set_my_commands([
-    #     BotCommand(command="auth", description="درخواست ادمینی"),
-    # ])
     await dp.start_polling(bot)
 
-asyncio.run(main())
-
+if __name__ == "__main__":
+    asyncio.run(main())
+    

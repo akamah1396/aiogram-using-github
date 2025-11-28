@@ -1,3 +1,1 @@
-class BotConfig:
-    def __init__(self, admin_list):
-        self.admin_list = admin_list
+BOT_TOKEN = "7963728852:AAGvqfqrfuekX4isU3reIhGsYI2rFo3OARs"
