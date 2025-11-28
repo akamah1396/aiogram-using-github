@@ -12,12 +12,11 @@ dp = Dispatcher()
 async def reply_start(message: Message)->None:
     await message.answer(f"سلام {message.from_user.first_name} \n ربات شما فعال شد. ")
 
-@dp.message(Command("photo"))
-async def reply_start(message: Message)->None:
-    await message.answer_photo("resources\images\gff.png")
+def register_routers():
+    dp.include_router(send_photo_router)
 
 async def main():
-    
+    register_routers()
     await dp.start_polling(bot)
 
 if __name__ == "__main__":
