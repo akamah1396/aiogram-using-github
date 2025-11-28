@@ -1,16 +1,16 @@
 import asyncio
-from aiogram import Dispatcher
-from bot.AkamTestBot import bot
+from aiogram import Bot, Dispatcher
+from bot.config import BOT_TOKEN
 from aiogram.filters import Command
 from aiogram.types import Message
 
-
+bot = Bot(BOT_TOKEN)
 dp = Dispatcher()
 
 
 @dp.message(Command("start"))
 async def reply_to_start(message: Message):
-    await message.answer(f"سلام {message.from_user.first_name} به ربات خودت خوش امدی.")
+    await message.answer("سلام  به ربات خودت خوش امدی.")
 
 
 async def main():
