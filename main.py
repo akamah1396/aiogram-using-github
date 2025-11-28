@@ -8,7 +8,7 @@ from aiogram.types import Message
 dp = Dispatcher()
 
 
-@dp.message(Command('start'))
+@dp.message(Command("start"))
 async def reply_to_start(message: Message) -> None:
     username = message.from_user
     await message.answer(f"سلام {username} به ربات خودت خوش امدی.")
