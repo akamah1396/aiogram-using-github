@@ -1,6 +1,6 @@
 import asyncio
 from aiogram import Bot, Dispatcher
-from bot.config import BOT_TOKEN
+from config import BOT_TOKEN
 from aiogram.filters import Command
 from aiogram.types import Message
 
