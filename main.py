@@ -10,7 +10,7 @@ dp = Dispatcher()
 
 @dp.message(Command("start"))
 async def reply_to_start(message: Message):
-    await message.answer(f"سلام {message.from_user} به ربات خودت خوش امدی.")
+    await message.answer(f"سلام {message.from_user.first_name} به ربات خودت خوش امدی.")
 
 
 async def main():
