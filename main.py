@@ -1,10 +1,11 @@
 import asyncio
-from aiogram import Dispatcher
-from bot.my_bot import bot
+from aiogram import Dispatcher, html
+from bot.my_bot import CreateBot
 from aiogram.types import Message
 from aiogram.filters import Command
 from bot.handlers.send_photo import send_photo_router
 
+bot = CreateBot().get_bot()
 
 dp = Dispatcher()
 
