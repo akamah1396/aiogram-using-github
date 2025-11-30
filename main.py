@@ -13,7 +13,7 @@ dp = Dispatcher()
 
 @dp.message(Command("start"))
 async def reply_start(message: Message)->None:
-    await message.answer(f"<code>سلام</code>{message.from_user.first_name} \n ربات شما فعال شد. ")
+    await message.answer(f"<code>سلام</code>{html.bold(message.from_user.first_name)} \n{html.bold("ربات شما فعال شد.")} ")
 
 def register_routers():
     dp.include_router(send_photo_router)
