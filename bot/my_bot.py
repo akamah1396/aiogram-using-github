@@ -9,7 +9,7 @@ class CreateBot:
         load_dotenv(".env")
         self.BOT_TOKEN =os.getenv("BOT_TOKEN")
         self.bot = Bot(token= self.BOT_TOKEN,
-                       default=DefaultBotProperties("HTML"))
+                       default=DefaultBotProperties(parse_mode="HTML"))
 
     def get_bot(self):
         return self.bot
