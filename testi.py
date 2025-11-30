@@ -1,0 +1,2 @@
+class Bejoor():
+    name = "saman"

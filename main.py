@@ -5,13 +5,15 @@ from aiogram.types import Message
 from aiogram.filters import Command
 from bot.handlers.send_photo import send_photo_router
 
+
+
 bot = CreateBot().get_bot()
 
 dp = Dispatcher()
 
 @dp.message(Command("start"))
 async def reply_start(message: Message)->None:
-    await message.answer(f"سلام {message.from_user.first_name} \n ربات شما فعال شد. ")
+    await message.answer(f"<code>سلام</code>{message.from_user.first_name} \n ربات شما فعال شد. ")
 
 def register_routers():
     dp.include_router(send_photo_router)
