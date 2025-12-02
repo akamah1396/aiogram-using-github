@@ -77,6 +77,7 @@ async def reply_start(message: Message)->None:
 
 def register_routers():
     dp.include_router(send_photo_router)
+    dp.include_router(form_router)
 
 async def main():
     register_routers()
