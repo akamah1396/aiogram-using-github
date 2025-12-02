@@ -52,8 +52,7 @@ async def language_handler(message: Message, state:FSMContext)-> None:
     data = await state.update_data(language = message.text)
     data = await state.get_data()
     state.clear()
-
-    await message.reply(f"بسیار عالی\n به نظر من {message.text} زبان با حالیه")
+    
     await show_summary(message=message, data=data)
 
 
