@@ -52,17 +52,17 @@ async def language_handler(message: Message, state:FSMContext)-> None:
     data = await state.update_data(language = message.text)
     data = await state.get_data()
     state.clear()
-    
-    await show_summary(message=message, data=data)
+
+    async def show_summary(message: Message, data: dict, positive: bool = True) -> None:
+        name = data["name"]
+        language = data["language"]
+        text = f"I'll keep in mind that, {html.quote(name)},your preferred language is: {language}"
+
+        await message.answer(text=text)  
 
 
+
     
-async def show_summary(message: Message, data: dict, positive: bool = True) -> None:
-    name = data["name"]
-    language = data["language"]
-    text = f"I'll keep in mind that, {html.quote(name)},your preferred language is: {language}"
-   
-    await message.answer(text=text)  
 
 
 
