@@ -24,7 +24,7 @@ reply_keyboard = ReplyKeyboardMarkup(keyboard=keyboard, resize_keyboard=True)
 form_router = Router()
 
 
-@form_router.message(Command('register'))
+@form_router.message(Command("register"))
 async def register_handler(message: Message, state: FSMContext)->None:
     await state.set_state(FormState.name)
     await message.answer("hello what is your name?")
