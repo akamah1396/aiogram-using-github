@@ -56,7 +56,7 @@ router_magic = Router()
 
 @router_magic.message(F.text.contains("choni"))
 async def choni_handler(messag):
-    messag.answer("من خاسم تو خاسی")
+    await messag.answer("من خاسم تو خاسی")
 
     
 
