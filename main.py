@@ -47,10 +47,16 @@ async def no_handler(message: Message, state: FSMContext):
     await state.clear()
     await message.answer("خیلی خری مگه میشه دوست نداشت",reply_markup=ReplyKeyboardRemove())
 
-@form_router.message(FormState.like_bot)
+@form_router.message(FormState.like_bot, F.text != "yes" & F.text != "no")
 async def all_handler(message: Message, state:FSMContext):
-    await state.clear()
-    message.answer("چرت ننویس جون مادرت")
+
+   await message.answer("چرت ننویس جون مادرت")
+
+router_magic = Router()
+
+@router_magic.message(F.text.contains("choni"))
+async def choni_handler(messag):
+    messag.answer("من خاسم تو خاسی")
 
     
 
@@ -87,6 +93,7 @@ async def reply_start(message: Message)->None:
 def register_routers():
     dp.include_router(send_photo_router)
     dp.include_router(form_router)
+    dp.include_router(router_magic)
 
 async def main():
     register_routers()
