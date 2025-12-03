@@ -39,13 +39,13 @@ async def process_name(message: Message, state:FSMContext)-> None:
 @form_router.message(FormState.like_bot,F.text.casefold() == "yes")
 async def yes_handler(message: Message, state:FSMContext)-> None:
     await state.set_state(FormState.language)
-    await message.answer("عالیه!\n با چه زبانی دوست داری بنویسی؟")
+    await message.answer("عالیه!\n با چه زبانی دوست داری بنویسی؟",reply_markup=ReplyKeyboardRemove)
 
 @form_router.message(FormState.like_bot, F.text.casefold() == "no")
 async def no_handler(message: Message, state: FSMContext):
     data = await state.get_data()
     await state.clear()
-    await message.answer("خیلی خری مگه میشه دوست نداشت")
+    await message.answer("خیلی خری مگه میشه دوست نداشت",reply_markup=ReplyKeyboardRemove)
 
 @form_router.message(FormState.like_bot)
 async def all_handler(message: Message, state:FSMContext):
