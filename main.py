@@ -44,15 +44,22 @@ async def yes_handler(message: Message, state:FSMContext)-> None:
 @form_router.message(FormState.like_bot, F.text.casefold() == "no")
 async def no_handler(message: Message, state: FSMContext):
     data = await state.get_data()
-    state.clear()
+    await state.clear()
     await message.answer("خیلی خری مگه میشه دوست نداشت")
+
+@form_router.message(FormState.like_bot)
+async def all_handler(message: Message, state:FSMContext):
+    await state.clear()
+    message.answer("چرت ننویس جون مادرت")
+
+    
 
 @form_router.message(FormState.language)
 async def language_handler(message: Message, state:FSMContext):
     data = await state.update_data(language = message.text)
     data = await state.get_data()
     await show_summary(message,data)
-    state.clear()
+    await state.clear()
     
 
 
