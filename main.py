@@ -84,8 +84,8 @@ router_test = Router()
 
 @router_test.message(Command("yek"))
 @router_test.message(Command("do"))
-def yek_do_handler(message: Message):
-    message.answer("this means you might have written yek or do")
+async def yek_do_handler(message: Message):
+    await message.answer("this means you might have written yek or do")
     
 
 
