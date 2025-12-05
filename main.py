@@ -1,10 +1,14 @@
 import asyncio
 from aiogram import Dispatcher,Router, html, F
 from bot.my_bot import CreateBot
-from aiogram.types import (Message, ReplyKeyboardMarkup,
+
+from aiogram.types import (
+Message,
+ReplyKeyboardMarkup,
 KeyboardButton,
 ReplyKeyboardRemove,
 KeyboardButton)
+
 from aiogram.filters import Command
 from bot.handlers.send_photo import send_photo_router
 from aiogram.fsm.context import FSMContext
@@ -74,7 +78,14 @@ async def show_summary(message: Message, data: dict, positive: bool = True) -> N
     language = data["language"]
     text = f"I'll keep in mind that, {html.quote(name)},your preferred language is: {language}"
 
-    await message.answer(text=text)  
+    await message.answer(text=text)
+
+router_test = Router()
+
+@router_test.message(Command("yek"))
+@router_test.message(Command("do"))
+def yek_do_handler(message: Message):
+    message.answer("this means you might have written yek or do")
     
 
 
@@ -94,6 +105,7 @@ def register_routers():
     dp.include_router(send_photo_router)
     dp.include_router(form_router)
     dp.include_router(router_magic)
+    dp.include_router(router_test)
 
 async def main():
     register_routers()
