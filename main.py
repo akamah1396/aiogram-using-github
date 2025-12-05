@@ -1,6 +1,7 @@
 import asyncio
 from aiogram import Dispatcher,Router, html, F
 from bot.my_bot import CreateBot
+from bot.handlers.mid_router import middleware_router
 
 from aiogram.types import (
 Message,
@@ -102,6 +103,7 @@ async def reply_start(message: Message)->None:
     await message.answer(f"<code>سلام</code>{html.bold(message.from_user.first_name)} \n{html.bold("ربات شما فعال شد.")} ")
 
 def register_routers():
+    dp.include_router(middleware_router)
     dp.include_router(send_photo_router)
     dp.include_router(form_router)
     dp.include_router(router_magic)

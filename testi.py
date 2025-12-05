@@ -1,2 +1,0 @@
-class Bejoor():
-    name = "saman"
