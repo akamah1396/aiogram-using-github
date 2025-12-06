@@ -6,6 +6,6 @@ from test import PeyghamMiddleware
 middleware_router = Router()
 middleware_router.message.middleware(PeyghamMiddleware())
 
-@middleware_router.message(Command("name"))
-async def midHandler(message):
+@middleware_router.message()
+async def midHandler(message: Message):
     await message.answer("نام خود را وارد کنید")
