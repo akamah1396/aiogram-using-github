@@ -7,6 +7,6 @@ from typing import Callable, Dict, Any
 
 class PeyghamMiddleware(BaseMiddleware):
     async def __call__(self, handler, event, data):
-        print("before mid is running...")
+        data["harchi"] = "دیتای میان افزار"
         result = await handler(event,data)
         print("after mid is running...")
