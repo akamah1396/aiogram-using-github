@@ -11,7 +11,7 @@ from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_applicati
 
 
 
-bot = CreateBot.get_bot()
+bot = CreateBot().get_bot()
 
 DOMAIN_NAME = os.getenv("DOMAIN_NAME")
 
