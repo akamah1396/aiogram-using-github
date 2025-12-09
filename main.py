@@ -9,7 +9,7 @@ from aiohttp import web
 from aiogram import Bot, Dispatcher
 from aiogram.webhook.aiohttp_server import SimpleRequestHandler, setup_application
 
-
+load_dotenv(".env")
 
 bot = CreateBot().get_bot()
 
@@ -17,7 +17,7 @@ DOMAIN_NAME = os.getenv("DOMAIN_NAME")
 
 
 WEBHOOK_PATH = "/webhook"
-WEBHOOK_URL = f"{DOMAIN_NAME}{WEBHOOK_PATH}"
+WEBHOOK_URL = f"https://aiogram-using-github-production.up.railway.app{WEBHOOK_PATH}"
 
 
 router = Router()
@@ -55,10 +55,9 @@ def main():
 
     setup_application(app, dp, bot=bot)
 
-    web.run_app(app, host="127.0.0.1", port=8080)
+    web.run_app(app, host="0.0.0.0", port=8080)
 
 
 if __name__ == "__main__":
-    load_dotenv(".env")
     main()
 
